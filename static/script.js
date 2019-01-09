@@ -1,6 +1,7 @@
 (function() {
 	var g = {}; // graphs
 	var u = {}; // utility functions
+	
 	u.padt = function(s) {
 		return ('00' + s).slice(-2);
 	};
@@ -63,6 +64,52 @@
 		$('#disku').text(u.bytes(n[0], 1));
 		$('#diskt').text(u.bytes(n[1], 1));
 	};
+
+	h.logs = function(files){
+		var html = "<ul>";
+		files.forEach(file => {
+			html +="<li> <a href='/files/" + file +"'>"+file+"</a></li>"
+		});
+		html += "</ul>";
+
+		$("#logs").html(html);
+	}
+
+	
+	h.sites = function(sites){
+		var html = "<ul>";
+		var jsonItem = JSON.parse(sites);
+		jsonItem.forEach(site => {
+			html +="<li>"+site.name+"("+(site.status ? "Running" : "Stop")+")"+"</li>"
+		});
+		html += "</ul>";
+
+		$("#sites").html(html);
+	}
+
+	h.logs2 = function(lines){
+		if(lines){
+			var html = "";
+			lines.reverse().forEach(line => {
+				html += "<div class='log-container'> <p>"+line+"</p></div>"
+			});
+
+			$("#logs2").html(html);
+		}
+	}
+
+	
+	h.logs3 = function(lines){
+		if(lines){
+			var html = "";
+			lines.reverse().forEach(line => {
+				html += "<div class='log-container'> <p>"+line+"</p></div>"
+			});
+
+			$("#logs3").html(html);
+		}
+	}
+
 	h.netio = function(n) {
 		$('#nett').text(u.bytes(n[0], 1));
 		$('#netr').text(u.bytes(n[1], 1));
@@ -169,5 +216,17 @@
 	};
 	for (var i in graphlist)
 		graph(i, graphlist[i]);
+	
+	
+	function fitToContainer(canvas){
+		canvas.style.width='95%';
+		canvas.style.height='95%';
+		canvas.width  = canvas.offsetWidth;
+		canvas.height = canvas.offsetHeight;
+	  }
+	var canvaslist = document.getElementsByTagName('canvas')
+	for(var i=0;i<canvaslist.length;i++)
+		fitToContainer(canvaslist[i]);
+		
 	ping();
 })();

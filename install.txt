@@ -1,0 +1,8 @@
+pip install -r requirements.txt
+	
+pip install iis_bridge
+
+
+
+Windows server
+diskperf -y

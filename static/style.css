@@ -1,14 +1,15 @@
 body {
-	width: 36em;
+	width: 80%;
 	margin: 0 auto;
 	position: relative;
 	background: #202020;
 	color: #c0c0c0;
 	font-family: 'Segoe UI', sans-serif;
 }
+
 .module {
 	display: inline-block;
-	width: 8rem;
+	width: 23%;
 	height: 5rem;
 	margin: 0.25rem;
 	padding: 0.25rem;
@@ -72,4 +73,24 @@ body {
 #uptime {
 	font-family: 'Consolas', monospace;
 	padding-top: 0;
+}
+
+div.logs {
+    overflow: auto;
+	max-height: 150px;
+	margin-top: 10px;
+}
+
+div.logs p {	
+	display:inline-block;
+ }
+
+ .log-container { text-align:center;
+    width: max-content; }
+.log-container p { 
+  display: table;
+  margin:0 auto;
+  display: inline-block; 
+  zoom: 1; 
+  *display: inline; 
 }
